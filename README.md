@@ -26,7 +26,7 @@ SmoothCodeAuth.new(request_hmac, client_secret).dashboard_request?(shop) # retur
 require 'smoothcode'
 
 # SmoothCode sends hmac in the Authorization Header of the request
-# It is hmac of the webhook data signed by your App Client Secret
+# It is hmac of the webhook id signed by your App Client Secret
 
 SmoothCodeAuth.new(request_hmac, client_secret).webhook_request?(webhook_data) # returns True if the request is valid
 ```

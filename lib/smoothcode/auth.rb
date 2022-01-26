@@ -1,5 +1,4 @@
 require_relative 'utils'
-require 'json'
 
 class SmoothCodeAuth
     def initialize(request_hmac, client_secret)
@@ -12,6 +11,9 @@ class SmoothCodeAuth
     end
 
     def webhook_request?(webhook_data)
-        generate_hmac(@client_secret, webhook_data.to_json) == @request_hmac
+        webhook_data = webhook_data.transform_keys(&:to_sym)
+        webhook_id = webhook_data[:id]
+
+        generate_hmac(@client_secret, webhook_id.to_s) == @request_hmac
     end
 end
