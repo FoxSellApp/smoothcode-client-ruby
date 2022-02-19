@@ -16,4 +16,11 @@ class SmoothCodeAuth
 
         generate_hmac(@client_secret, webhook_id.to_s) == @request_hmac
     end
+
+    def gdpr_webhook_request?(webhook_data)
+        webhook_data = webhook_data.transform_keys(&:to_sym)
+        shop_id = webhook_data[:shop_id]
+
+        generate_hmac(@client_secret, shop_id.to_s) == @request_hmac
+    end
 end
