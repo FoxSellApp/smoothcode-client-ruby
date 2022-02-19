@@ -30,4 +30,14 @@ require 'smoothcode'
 
 SmoothCodeAuth.new(request_hmac, client_secret).webhook_request?(webhook_data) # returns True if the request is valid
 ```
+
+* `gdpr_webhook_request?(webhook_data)` - This method verifies if the webhook request is coming from `SmoothCode`
+```ruby
+require 'smoothcode'
+
+# SmoothCode sends hmac in the Authorization Header of the request
+# It is hmac of the shop id signed by your App Client Secret
+
+SmoothCodeAuth.new(request_hmac, client_secret).gdpr_webhook_request?(webhook_data) # returns True if the request is valid
+```
 ***
