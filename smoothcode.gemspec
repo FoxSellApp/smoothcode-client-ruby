@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'smoothcode'
-  s.version     = '0.0.4'
+  s.version     = '1.0.0'
   s.summary     = 'Ruby client to interact with SmoothCode'
   s.description = 'Ruby client to interact with SmoothCode'
   s.authors     = ['SmoothCode']

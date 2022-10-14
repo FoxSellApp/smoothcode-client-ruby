@@ -12,7 +12,7 @@ class SmoothCodeAuth
 
     def webhook_request?(webhook_data)
         webhook_data = webhook_data.transform_keys(&:to_sym)
-        webhook_id = webhook_data[:id]
+        webhook_id = webhook_data[:shopify_webhook_uuid]
 
         generate_hmac(@client_secret, webhook_id.to_s) == @request_hmac
     end
